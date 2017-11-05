@@ -2,8 +2,7 @@
 title: Server-side Usage
 ---
 
-> Less can be used on the command line via npm, downloaded as a script file for the browser or used in a wide variety of third party tools. See the [Usage]({{resolve 'usage'}}) section for more
-detailed information.
+> Less 可以通过npm在命令行中使用， 以及作为浏览器的脚本文件下载，或在各种各样的第三方工具中使用。 查看[使用]({{resolve 'usage'}}) 章节获取更多具体信息。
 
 ## Installation
 
