@@ -1,16 +1,15 @@
-#### [Download Source Code]({{ less.sourcearchive }}{{ less.version }}.zip)
+#### [下载源代码]({{ less.sourcearchive }}{{ less.version }}.zip)
 
-Get the latest Less source code by downloading it directly from GitHub.
-
-
-#### [Clone or Fork via GitHub]({{ less.repository.url }})
-
-Fork the project and send us a pull request!
+从GitHub直接下载最新的源代码。
 
 
-#### [Install with Bower](http://bower.io)
+#### [从GitHub上Clone或Fork]({{ less.repository.url }})
 
-Install less.js script by running the following in the command line:
+Fork项目，并给我们提pull request！
+
+#### [通过Bower安装](http://bower.io)
+
+通过在命令行中运行以下命令来安装less.js脚本：
 
 ```bash
 bower install less

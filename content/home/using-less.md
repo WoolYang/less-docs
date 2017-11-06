@@ -64,7 +64,7 @@ var less = require('less');
 less.render('.class { width: (1 + 1) }',
     {
       paths: ['.', './lib'],  // 指定@import指令的搜索路径
-      filename: 'style.less', // Specify a filename, for better error messages
+      filename: 'style.less', // 指定一个文件名称, 以更好的输出错误信息
     },
     function (e, output) {
        console.log(output.css);
