@@ -12,16 +12,16 @@ base: content/features
 # Published documenation
 published:
   features-overview:
-    title: Overview
+    title: 概览
     lead:  Simple overview of the basic features
     files: content/features-overview.md
 
   variables:
-    title: Variables
+    title: 变量
     files: <%= features.base %>/variables.md
 
   extend:
-    title: Extend
+    title: 继承
     files: <%= features.base %>/extend.md
 
   mixins:

@@ -2,12 +2,11 @@
 title: Features Overview
 ---
 
-> As an extension to CSS, Less is not only backwards compatible with CSS, but the extra features it adds use existing CSS syntax. This makes learning Less a breeze, and if in doubt, lets you fall back to vanilla CSS.
+> Less作为CSS的扩展，不仅向下兼容CSS，而且Less是在现有CSS语法基础上增添的额外特性，这使Less更容易上手，如果有疑问，可以回退的普通的CSS。
 
+### 1.变量
 
-### Variables
-
-These are pretty self-explanatory:
+变量看上去就一目了然：
 
 ```less
 @nice-blue: #5B83AD;
@@ -18,7 +17,7 @@ These are pretty self-explanatory:
 }
 ```
 
-Outputs:
+输出为:
 
 ```css
 #header {
@@ -26,12 +25,12 @@ Outputs:
 }
 ```
 
-Note that variables are actually "constants" in that they can only be defined once.
+请注意，变量实际上是“常量”，因为它们只能被定义一次。
 
 
-### Mixins
+### 2.混合
 
-Mixins are a way of including ("mixing in") a bunch of properties from one rule-set into another rule-set. So say we have the following class:
+混合是一种将一个规则集中包含（“混入”）一组属性插入到另一个规则集的方法。 比如说有以下class：
 
 ```css
 .bordered {
@@ -40,7 +39,7 @@ Mixins are a way of including ("mixing in") a bunch of properties from one rule-
 }
 ```
 
-And we want to use these properties inside other rule-sets. Well, we just have to drop in the name of the class where we want the properties, like so:
+我们希望在其他规则集中使用这些属性。 那么，我们只需要将我们想要放入其中的规则集的class名称放入，就像这样：
 
 ```less
 #menu a {
@@ -54,17 +53,17 @@ And we want to use these properties inside other rule-sets. Well, we just have t
 }
 ```
 
-The properties of the `.bordered` class will now appear in both `#menu a` and `.post a`. (Note that you can also use `#ids` as mixins.)
+“.bordered” 这个class的属性现在将出现在“#menu a”和“.post a”中。 （请注意，您也可以使用`＃ids`作为混合。）
 
-**Learn more**
+**了解更多**
 
-* [More about mixins](#mixins-feature)
-* [Parametric Mixins](#mixins-parametric-feature)
+* [更多混合相关](#mixins-feature)
+* [参数混合](#mixins-parametric-feature)
 
 
-### Nested Rules
+### 3.嵌套规则
 
-Less gives you the ability to use nesting instead of, or in combination with cascading. Let's say we have the following CSS:
+Less使您能够使用嵌套代替CSS中逐级书写。 假设我们有以下CSS：
 
 ```css
 #header {
@@ -78,7 +77,7 @@ Less gives you the ability to use nesting instead of, or in combination with cas
 }
 ```
 
-In Less, we can also write it this way:
+我们可以使用Less这样书写：
 
 ```less
 #header {
@@ -92,9 +91,9 @@ In Less, we can also write it this way:
 }
 ```
 
-The resulting code is more concise, and mimics the structure of your HTML.
+模仿HTML的结构，使代码更加简洁。
 
-You can also bundle pseudo-selectors with your mixins using this method. Here's the classic clearfix hack, rewritten as a mixin (`&` represents the current selector parent):
+你也可以使用这种方法将伪选择器与混合捆绑在一起。这是经典的clearfix hack，用混合重写（`＆`代表当前的父选择器）：
 
 ```less
 .clearfix {
@@ -112,9 +111,9 @@ You can also bundle pseudo-selectors with your mixins using this method. Here's 
 }
 ```
 
-**See also**
+**参见**
 
-* [Parent Selectors](#parent-selectors-feature)
+* [父选择器](#parent-selectors-feature)
 
 ### Nested Directives and Bubbling
 
