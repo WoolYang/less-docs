@@ -95,7 +95,7 @@ This will compile styles.less file and save the result to styles.css file. The o
 
 > 在浏览器中使用less.js对开发很有帮助， 但不推荐用于生产环境
 
-客户端是最简单的Less入门方式，适用于开发， 但在生产环境， 重要的是性能和可靠性， _我们建议使用node.js或其他第三方工具来预编译_。
+客户端安装是Less最简单的安装方式，不过这种方式只适用于开发环境，因为在生产环境中，系统的性能和可靠性尤为重要， _所以我们建议使用node.js或其他第三方工具来预编译_。
 
 首先，通过将`rel`属性设置为"`stylesheet/less`"来连接你的 `.less` 样式表：
 
