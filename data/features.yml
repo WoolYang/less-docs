@@ -29,19 +29,19 @@ published:
     files: <%= features.base %>/mixins.md
 
   mixins-parametric:
-    title: Parametric Mixins
+    title: Mixins参数
     files: <%= features.base %>/mixins-parametric.md
 
   mixins-as-functions:
-    title: Mixins as Functions
+    title: Mixins函数
     files: <%= features.base %>/mixins-as-functions.md
 
   detached-rulesets:
-    title: Passing Rulesets to Mixins
+    title: 将规则集传递给Mixins
     files: <%= features.base %>/detached-rulesets.md
 
   import-directives:
-    title: Import Directives
+    title: import指令
     files: <%= features.base %>/import-directives.md
 
   mixin-guards:
@@ -53,15 +53,15 @@ published:
     files: <%= features.base %>/css-guards.md
 
   loops:
-    title: Loops
+    title: 循环
     files: <%= features.base %>/loops.md
 
   merge:
-    title: Merge
+    title: 合并
     files: <%= features.base %>/merge.md
 
   parent-selectors:
-    title: Parent Selectors
+    title: 父选择器
     files: <%= features.base %>/parent-selectors.md
 
 

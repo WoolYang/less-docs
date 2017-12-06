@@ -1,4 +1,4 @@
-> Import styles from other style sheets
+> 从其他样式表导入样式
 
 In standard CSS, `@import` at-rules must precede all other types of rules. But Less doesn't care where you put `@import` statements.
 
@@ -29,7 +29,7 @@ Examples:
 
 The following options can be used to override this behavior.
 
-# Import Options
+# import选项
 > Less offers several extensions to the CSS `@import` CSS at-rule to provide more flexibility over what you can do with external files.
 
 Syntax: `@import (keyword) "filename";`
