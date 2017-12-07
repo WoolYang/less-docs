@@ -157,8 +157,6 @@ a:hover {
 }
 ```
 
-The selector `.no-borderradius &` will prepend `.no-borderradius` to its parent `.header .menu` to form the`.no-borderradius .header .menu` on output:
-
 `.no-borderradius &`选择器会将`.no-borderradius`添加到其父级`.header .menu`中，以`.no-borderradius .header .menu`形式输出：
 
 ```css
