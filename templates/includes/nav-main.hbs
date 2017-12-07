@@ -21,9 +21,7 @@
         <li>
           <a href="{{rel 'features'}}/">语言特性</a>
         </li>
-        {{/is}}
-        {{#is links.plugins true}}
-        {{#is slug 'plugins'}}
+        {{/is}} {{#is links.plugins true}} {{#is slug 'plugins'}}
         <li class="active">
           <span>Plugins</span>
         </li>
@@ -31,31 +29,26 @@
         <li>
           <a href="{{rel 'plugins'}}/">Plugins</a>
         </li>
-        {{/is}}        
-        {{/is}}
-        {{#is slug 'functions'}}
+        {{/is}} {{/is}} {{#is slug 'functions'}}
         <li class="active">
-          <span>Function Reference</span>
+          <span>函数手册</span>
         </li>
         {{else}}
         <li>
-          <a href="{{rel 'functions'}}/">Function Reference</a>
+          <a href="{{rel 'functions'}}/">函数手册</a>
         </li>
-        {{/is}}        
-       {{#is slug 'usage'}}
+        {{/is}} {{#is slug 'usage'}}
         <li class="active">
-          <span>Usage</span>
+          <span>用法</span>
         </li>
         {{else}}
         <li>
-          <a href="{{rel 'usage'}}/">Usage</a>
+          <a href="{{rel 'usage'}}/">用法</a>
         </li>
-        {{/is}}
+        {{/is}} {{!--
         <li>
           <a href="{{site.onlineeditor}}">Try it</a>
-        </li>
-        {{#is links.cheatsheet true}}
-        {{#is slug 'cheatsheet'}}
+        </li> --}} {{#is links.cheatsheet true}} {{#is slug 'cheatsheet'}}
         <li class="active">
           <span>Cheatsheet</span>
         </li>
@@ -63,12 +56,10 @@
         <li>
           <a href="{{rel 'cheatsheet'}}/">Cheatsheet</a>
         </li>
-        {{/is}}        
-        {{/is}}
+        {{/is}} {{/is}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        {{#is links.blog true}}
-        {{#is slug 'blog'}}
+        {{#is links.blog true}} {{#is slug 'blog'}}
         <li class="active">
           <span>Blog</span>
         </li>
@@ -76,26 +67,34 @@
         <li>
           <a href="{{rel 'blog'}}/">Blog</a>
         </li>
-        {{/is}}        
-        {{/is}}       
-        {{#is slug 'about'}}
+        {{/is}} {{/is}} {{#is slug 'about'}}
         <li class="active">
-          <span>About</span>
+          <span>关于</span>
         </li>
         {{else}}
         <li>
-          <a href="{{rel 'about'}}/">About</a>
+          <a href="{{rel 'about'}}/">关于</a>
         </li>
-        {{/is}}   
-        
+        {{/is}}
+
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub
+            <b class="caret"></b>
+          </a>
           <ul class="dropdown-menu">
-            <li> <a href="{{site.repo}}">Docs Repo</a> </li>
-            <li> <a href="{{site.issues}}">Docs Issues</a> </li>
+            <li>
+              <a href="{{site.repo}}">Docs Repo</a>
+            </li>
+            <li>
+              <a href="{{site.issues}}">Docs Issues</a>
+            </li>
             <li class="divider"></li>
-            <li> <a href="{{less.repository.url}}">Less Repo</a> </li>
-            <li> <a href="{{less.bugs.url}}">Less Issues</a> </li>
+            <li>
+              <a href="{{less.repository.url}}">Less Repo</a>
+            </li>
+            <li>
+              <a href="{{less.bugs.url}}">Less Issues</a>
+            </li>
           </ul>
         </li>
       </ul>
