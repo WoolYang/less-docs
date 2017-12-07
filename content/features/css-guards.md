@@ -1,10 +1,10 @@
-> "if"'s around selectors
+> "if"在选择器周围
 
-Released [v1.5.0]({{ less.master.url }}CHANGELOG.md)
+发布 [v1.5.0]({{ less.master.url }}CHANGELOG.md)
 
-Guards can also be applied to css selectors, which is syntactic sugar for declaring the mixin and then calling it immediately.
+Guard 也可以应用于CSS选择器， 这是用于声明mixin的语法糖，然后立即调用它。
 
-For instance, before 1.5.0 you would have had to do this:
+例如，在1.5.0之前，你将不得不这样做：
 
 ```less
 .my-optional-style() when (@my-option = true) {
@@ -15,7 +15,7 @@ For instance, before 1.5.0 you would have had to do this:
 .my-optional-style();
 ```
 
-Now, you can apply the guard directly to a style.
+现在，可以直接将guard应用于某种样式。
 
 ```less
 button when (@my-option = true) {
@@ -23,7 +23,8 @@ button when (@my-option = true) {
 }
 ```
 
-You can also achieve an `if` type statement by combining this with the `&` feature, allowing you to group multiple guards. 
+也可以通过与`&`功能结合起来来实现一个`if`类型的语句，允许您将多个guard分组。
+
 ```less
 & when (@my-option = true) {
   button {

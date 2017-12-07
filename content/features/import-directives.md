@@ -1,8 +1,8 @@
 > 从其他样式表导入样式
 
-In standard CSS, `@import` at-rules must precede all other types of rules. But Less doesn't care where you put `@import` statements.
+在标准CSS中，`@import` 规则必须在所有其他类型规则之前。 但 不关心你把`@ import`语句放在哪里。
 
-Example:
+例如：
 
 ```less
 .foo {
@@ -11,141 +11,158 @@ Example:
 @import "this-is-valid.less";
 ```
 
-## File Extensions
+## 1.文件扩展名
 `@import` statements may be treated differently by Less depending on the file extension:
 
-* If the file has a `.css` extension it will be treated as CSS and the `@import` statement left as-is (see the [inline option](#import-options-inline) below).
-* If it has _any other extension_ it will be treated as Less and imported.
-* If it does not have an extension, `.less` will be appended and it will be included as a imported Less file.
+根据Less文件扩展名的不同，会用不同方式处理`@import`语句：
 
-Examples:
+* 如果文件具有`.css`扩展名，那么它将被视为CSS并且`@ import`语句保持原样 (参见 [内联选项](#import-options-inline) below).
+* 如果为_其他扩展名_它将被视为Less文件并被导入。
+* 如果没有扩展名，则会追加“.less”，并将其作为Less文件导入。
+
+例如：
 
 ```less
-@import "foo";      // foo.less is imported
-@import "foo.less"; // foo.less is imported
-@import "foo.php";  // foo.php imported as a Less file
-@import "foo.css";  // statement left in place, as-is
+@import "foo";      // foo.less 被导入
+@import "foo.less"; // foo.less 被导入
+@import "foo.php";  // foo.php 作为Less文件被导入
+@import "foo.css";  // 保留原本的导入声明
 ```
 
-The following options can be used to override this behavior.
+以下配置项可用于覆盖此行为。
 
-# import选项
+# import配置项
 > Less offers several extensions to the CSS `@import` CSS at-rule to provide more flexibility over what you can do with external files.
 
-Syntax: `@import (keyword) "filename";`
+Less提供了几个CSS`@import`规则扩展项，在使用外部文件时提供更多的灵活性。
 
-The following import directives have been implemented:
+语法: `@import (keyword) "filename";`
 
-* `reference`: use a Less file but do not output it
-* `inline`: include the source file in the output but do not process it
-* `less`: treat the file as a Less file, no matter what the file extension
-* `css`: treat the file as a CSS file, no matter what the file extension
-* `once`: only include the file once (this is default behavior)
-* `multiple`: include the file multiple times
-* `optional`: continue compiling when file is not found
+以下导入指令已经被实现：
 
-> More than one keyword per `@import` is allowed, you will have to use commas to separate the keywords:
+* `reference`: 使用一个Less文件，但不输出它
+* `inline`: 在输出中包含源文件，但不处理它
+* `less`: 将文件视为Less文件，而不管文件扩展名是什么
+* `css`: 将文件视为css文件，而不管文件扩展名是什么
+* `once`: 只包含文件一次（默认行为）
+* `multiple`: 包含文件多次
+* `optional`: 当找不到文件时继续编译
 
-Example: `@import (optional, reference) "foo.less";`
+> 每个`@import`允许多个关键字，您必须使用逗号分隔关键字：
 
-## reference
-> Use `@import (reference)` to import external files, but without adding the imported styles to the compiled output unless referenced.
+示例： `@import (optional, reference) "foo.less";`
 
-Released [v1.5.0]({{ less.master.url }}CHANGELOG.md)
-
-Example: `@import (reference) "foo.less";`
-
-Imagine that `reference` marks every directive and selector with a _reference flag_ in the imported file, imports as normal, but when the CSS is generated, "reference" selectors (as well as any media queries containing only reference selectors) are not output. `reference` styles will not show up in your generated CSS unless the reference styles are used as [mixins](#mixins-feature) or [extended](#extend-feature).
-
-Additionally, **`reference`** produces different results depending on which method was used (mixin or extend):
-
-* **[extend](#extend-feature)**: When a selector is extended, only the new selector is marked as _not referenced_, and it is pulled in at the position of the reference `@import` statement.
-* **[mixins](#mixins-feature)**: When a `reference` style is used as an [implicit mixin](#mixins-feature), its rules are mixed-in, marked "not reference", and appear in the referenced place as normal.
+## 1.reference
+> 使用`@import (reference)）`导入外部文件，但不会将导入的样式添加到编译后的输出中，除非被引用。
 
 
-### reference example
-This allows you to pull in only specific, targeted styles from a library such as [Bootstrap](https://github.com/twbs/bootstrap) by doing something like this:
+
+发布 [v1.5.0]({{ less.master.url }}CHANGELOG.md)
+
+示例： `@import (reference) "foo.less";`
+
+想象一下，`reference`在导入的文件中用_reference flag_标记每个指令和选择器，正常导入，但是当生成CSS时，不会输出“引用”选择器（以及任何只包含引用选择器的媒体查询）。 除非使用引用样式，`reference`样式不会显示在生成的CSS中作为 [mixins](#mixins-feature) 或 [继承](#extend-feature).
+
+
+此外，**`reference`**根据不同使用方法（mixin或extend）产生不同的结果：
+
+* **[继承](#extend-feature)**： 当一个选择器继承时，只有新的选择器被标记为_not referenced_，并且出现在引入`@ import`语句的位置。
+* **[mixins](#mixins-feature)**： 当`reference`样式被用作[隐式mixin](#mixins-feature)时，它的规则被混入，标记为“not reference”，并以正常的方式出现在引用的位置。
+
+
+
+### 1-1.reference 示例
+这样就可以通过执行如下操作从库[Bootstrap] [Bootstrap](https://github.com/twbs/bootstrap)中只引用特定的目标样式：
 
 ```less
 .navbar:extend(.navbar all) {}
 ```
 
-And you will pull in only `.navbar` related styles from Bootstrap.
+你将只从Bootstrap中提取`.navbar`相关的样式。
 
 
-## inline
-> Use `@import (inline)` to include external files, but not process them.
-
-Released [v1.5.0]({{ less.master.url }}CHANGELOG.md)
-
-Example: `@import (inline) "not-less-compatible.css";`
-
-You will use this when a CSS file may not be Less compatible; this is because although Less supports most known standards CSS, it does not support comments in some places and does not support all known CSS hacks without modifying the CSS.
-
-So you can use this to include the file in the output so that all CSS will be in one file.
+## 2.inline
+> 使用 `@import (inline)`输出中包含外部文件，但不处理它们。
 
 
-## less
-> Use `@import (less)` to treat imported files as Less, regardless of file extension.
 
-Released [v1.4.0]({{ less.master.url }}CHANGELOG.md)
+发布 [v1.5.0]({{ less.master.url }}CHANGELOG.md)
 
-Example:
+示例: `@import (inline) "not-less-compatible.css";`
+
+当CSS文件可能不兼容Less时，你会使用这个; 虽然Less支持大多数已知的标准CSS，但它不支持某些地方的注释，并且不支持所有已知的CSS hacks。
+
+所以你可以使用这个在输出中包含这个文件，这样所有的CSS都会在一个文件中。
+
+
+## 3.less
+> 忽略文件扩展名，使用`@import (less)`将导入的文件视为Less。
+
+
+
+发布 [v1.4.0]({{ less.master.url }}CHANGELOG.md)
+
+示例：
 
 ```less
 @import (less) "foo.css";
 ```
 
 
-## css
-> Use `@import (css)` to treat imported files as regular CSS, regardless of file extension. This means the import statement will be left as it is.
+## 4.css
+> 使用`@import（css）`将输入的文件视为普通的CSS，而忽略文件的扩展名。 这意味着导入声明将保持原样。
 
-Released [v1.4.0]({{ less.master.url }}CHANGELOG.md)
 
-Example:
+
+发布 [v1.4.0]({{ less.master.url }}CHANGELOG.md)
+
+示例：
 
 ```less
 @import (css) "foo.less";
 ```
-outputs
+编译为
 
 ```less
 @import "foo.less";
 ```
 
 
-## once
-> The default behavior of `@import` statements. It means the file is imported only once and subsequent import statements for that file will be ignored.
+## 5.once
+> `@import`语句的默认行为。 这意味着该文件只导入一次，该文件的后续import语句将被忽略。
 
-Released [v1.4.0]({{ less.master.url }}CHANGELOG.md)
 
-This is the default behavior of `@import` statements.
+发布 [v1.4.0]({{ less.master.url }}CHANGELOG.md)
 
-Example:
+这是`@import`语句的默认行为。
+
+示例：
 
 ```less
 @import (once) "foo.less";
-@import (once) "foo.less"; // this statement will be ignored
+@import (once) "foo.less"; // 此声明将会被忽略
 ```
 
 
-## multiple
-> Use `@import (multiple)` to allow importing of multiple files with the same name. This is the opposite behavior to once.
+## 6.multiple
+> 使用`@import (multiple)` 来导入多个具有相同名称的文件。 与once的行为相反。
 
-Released [v1.4.0]({{ less.master.url }}CHANGELOG.md)
 
-Example:
+
+发布 [v1.4.0]({{ less.master.url }}CHANGELOG.md)
+
+示例：
 
 ```less
-// file: foo.less
+// 文件: foo.less
 .a {
   color: green;
 }
-// file: main.less
+// 文件: main.less
 @import (multiple) "foo.less";
 @import (multiple) "foo.less";
 ```
-Outputs
+编译为
 
 ```less
 .a {
@@ -156,7 +173,7 @@ Outputs
 }
 ```
 
-## optional
-> Use `@import (optional)` to allow importing of a file only when it exists. Without the `optional` keyword Less throws a FileError and stops compiling when importing a file that can not be found. 
+## 7.optional
+> 使用`@import (optional)`只允许在文件存在的情况下导入文件。 如果没有`optional`关键字Less引发FileError并在导入无法找到的文件时停止编译。
 
-Released [v2.3.0]({{ less.master.url }}CHANGELOG.md)
+发布 [v2.3.0]({{ less.master.url }}CHANGELOG.md)
