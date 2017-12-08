@@ -1,92 +1,92 @@
 ### color
 
-> Parses a color, so a string representing a color becomes a color.
+> 解析颜色，将表示颜色的字符串转换为颜色值。
 
-Parameters: `string`: a string of the specified color.
+参数: `string`:表示颜色值的字符串。
 
-Returns: `color`
+返回值: `color`
 
-Example: `color("#aaa");`
+示例: `color("#aaa");`
 
-Output: `#aaa`
+编译为: `#aaa`
 
 ### image-size
 
-> Gets the image dimensions from a file.
+> 从文件中获取图像尺寸。
 
-Parameters: `string`: the file to get the dimensions for.
+参数: `string`: 所需获取尺寸的文件。
 
-Returns: `dimension`
+返回值: `dimension`
 
-Example: `image-size("file.png");`
+示例: `image-size("file.png");`
 
-Output: `10px 10px`
+编译为: `10px 10px`
 
-Note: this function needs to be implemented by each environment. It is currently only available in the node environment.
+注意：这个功能需要由每个环境来实现。 它目前仅在node环境中可用。
 
-Added in: v2.2.0
+添加版本: v2.2.0
 
 ### image-width
 
-> Gets the image width from a file.
+> 从文件中获取图像宽度。
 
-Parameters: `string`: the file to get the dimensions for.
+参数: `string`: 所需获取尺寸的文件。
 
-Returns: `dimension`
+返回值: `dimension`
 
-Example: `image-width("file.png");`
+示例: `image-width("file.png");`
 
-Output: `10px`
+编译为: `10px`
 
-Note: this function needs to be implemented by each environment. It is currently only available in the node environment.
+注意：这个功能需要由每个环境来实现。 它目前仅在node环境中可用。
 
-Added in: v2.2.0
+添加版本: v2.2.0
 
 ### image-height
 
-> Gets the image height from a file.
+>从文件中获取图像高度。
 
-Parameters: `string`: the file to get the dimensions for.
+参数: `string`: 所需获取尺寸的文件。
 
-Returns: `dimension`
+返回值: `dimension`
 
-Example: `image-height("file.png");`
+示例: `image-height("file.png");`
 
-Output: `10px`
+编译为: `10px`
 
-Note: this function needs to be implemented by each environment. It is currently only available in the node environment.
+注意：这个功能需要由每个环境来实现。 它目前仅在node环境中可用。
 
-Added in: v2.2.0
+添加版本: v2.2.0
 
 ### convert
 
-> Convert a number from one unit into another.
+> 将数字从一个单位转换为另一个单位。
 
-The first argument contains a number with units and second argument contains units. If the units are compatible, the number is converted. If they are not compatible, the first argument is returned unmodified.
+第一个参数为一个带单位的数字，第二个参数为单位。 如果这些单位是兼容的，则数字被转换。 如果它们不兼容，则第一个参数将不被修改。
 
-See [unit](#misc-functions-unit) for changing the unit without conversion.
+参见 [单位](#misc-functions-unit)不做转换的情况下改变单位。
 
-_Compatible unit groups_:
+_可转换的单位_:
 
-* lengths: `m`, `cm`, `mm`, `in`, `pt` and `pc`,
-* time: `s` and `ms`,
-* angle: `rad`, `deg`, `grad` and `turn`.
+* 长度: `m`, `cm`, `mm`, `in`, `pt`, `pc`,
+* 时间: `s`, `ms`,
+* 角度: `rad`, `deg`, `grad`, `turn`.
 
-Parameters:
-* `number`: a floating point number with units.
-* `identifier`, `string` or `escaped value`: units
+参数:
+* `number`: 带单位的浮点数。
+* `identifier`, `string`或者 `escaped value`: 单位
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 convert(9s, "ms")
 convert(14cm, mm)
-convert(8, mm) // incompatible unit types
+convert(8, mm) // 不可转换的单位类型
 ```
 
-Output:
+编译为:
 
 ```
 9000ms
@@ -97,29 +97,29 @@ Output:
 
 ### data-uri
 
-> Inlines a resource and falls back to `url()` if the ieCompat option is on and the resource is too large, or if you use the function in the browser. If the MIME type is not given then node uses the mime package to determine the correct mime type.
+> 如果用ieCompat选项打开并且资源太大，或者如果在浏览器中使用该函数，则将资源内联进样式表并返回到`url()`。 如果没有指定MIME类型，node将使用MIME包来决定正确的MIME类型。
 
-Parameters:
-* `mimetype`: (Optional) A MIME type string.
-* `url`: The URL of the file to inline.
+参数:
+* `mimetype`: （可选）MIME类型字符串。
+* `url`: 要内联的文件的URL。
 
-If there is no mimetype, data-uri function guesses it from filename suffix. Text and svg files are encoded as utf-8 and anything else is encoded as base64. 
+如果没有指定mimetype，data-uri函数会从文件名后缀中猜出来。 Text文本和SVG文件按照utf-8编码，其他都会按base64编码。
 
-If user provided mimetype, the function uses base64 if mimetype argument ends with ;base64. For example, `image/jpeg;base64` is encoded into base64 while `text/html` is encoded into utf-8. 
+如果提供了mimetype，且mimetype参数以base64结尾，则函数使用base64。 例如，`image / jpeg; base64`按照编base64码，而`text / html`按照utf-8编码。
 
-Example: `data-uri('../data/image.jpg');`
+示例: `data-uri('../data/image.jpg');`
 
-Output: `url('data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==');`
+编译为: `url('data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==');`
 
-Output in browser: `url('../data/image.jpg');`
+浏览器中编译为: `url('../data/image.jpg');`
 
-Example: `data-uri('image/jpeg;base64', '../data/image.jpg');`
+示例: `data-uri('image/jpeg;base64', '../data/image.jpg');`
 
-Output: `url('data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==');`
+编译为: `url('data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==');`
 
-Example: `data-uri('image/svg+xml;charset=UTF-8', 'image.svg');`
+示例: `data-uri('image/svg+xml;charset=UTF-8', 'image.svg');`
 
-Output: `url("data:image/svg+xml;charset=UTF-8,%3Csvg%3E%3Ccircle%20r%3D%229%22%2F%3E%3C%2Fsvg%3E");`
+编译为: `url("data:image/svg+xml;charset=UTF-8,%3Csvg%3E%3Ccircle%20r%3D%229%22%2F%3E%3C%2Fsvg%3E");`
 
 ### default
 
