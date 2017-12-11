@@ -1,88 +1,88 @@
 ### ceil
 
-> Rounds up to the next highest integer.
+> 向上取整。
 
-Parameters: `number` - a floating point number.
+参数: `number` - 一个浮点数。
 
-Returns: `integer`
+返回值: `integer`
 
-Example: `ceil(2.4)`
+示例: `ceil(2.4)`
 
-Output: `3`
+编译为: `3`
 
 
 ### floor
 
-> Rounds down to the next lowest integer.
+> 向下取整。
 
-Parameters: `number` - a floating point number.
+参数: `number` - 一个浮点数。
 
-Returns: `integer`
+返回值: `integer`
 
-Example: `floor(2.6)`
+示例: `floor(2.6)`
 
-Output: `2`
+编译为: `2`
 
 
 ### percentage
 
-> Converts a floating point number into a percentage string.
+> 将浮点数转换为百分比字符串。
 
-Parameters: `number` - a floating point number.
+参数: `number` - 一个浮点数。
 
-Returns: `string`
+返回值: `string`
 
-Example: `percentage(0.5)`
+示例: `percentage(0.5)`
 
-Output: `50%`
+编译为: `50%`
 
 
 ### round
 
-> Applies rounding.
+> 四舍五入
 
-Parameters:
-* `number`: A floating point number.
-* `decimalPlaces`: Optional: The number of decimal places to round to. Defaults to 0.
+参数:
+* `number`: 一个浮点数。
+* `decimalPlaces`: 可选：四舍五入到的小数位数。 默认为0。
 
-Returns: `number`
+返回值: `number`
 
-Example: `round(1.67)`
+示例: `round(1.67)`
 
-Output: `2`
+编译为: `2`
 
-Example: `round(1.67, 1)`
+示例: `round(1.67, 1)`
 
-Output: `1.7`
+编译为: `1.7`
 
 
 ### sqrt
 
-> Calculates square root of a number. Keeps units as they are.
+> 计算一个数字的平方根，同时保持单位原样。
 
-Parameters: `number` - floating point number.
+参数: `number` -  一个浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 sqrt(25cm)
 ```
 
-Output:
+编译为:
 
 ```css
 5cm
 ```
 
-Example:
+示例:
 
 ```less
 sqrt(18.6%)
 ```
 
-Output:
+编译为:
 
 ```js
 4.312771730569565%;
@@ -91,32 +91,32 @@ Output:
 
 ### abs
 
-> Calculates absolute value of a number. Keeps units as they are.
+> 计算一个数字的绝对值。 保持单位原样。
 
-Parameters: `number` - a floating point number.
+参数: `number` -  一个浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example #1: `abs(25cm)`
+示例 #1: `abs(25cm)`
 
-Output: `25cm`
+编译为: `25cm`
 
-Example #2: `abs(-18.6%)`
+示例 #2: `abs(-18.6%)`
 
-Output: `18.6%;`
+编译为: `18.6%;`
 
 
 ### sin
 
-> Calculates sine function.
+> 计算正弦函数。
 
-Assumes radians on numbers without units.
+假设数字弧度上没有单位。
 
-Parameters: `number` - a floating point number.
+参数: `number` - 一个浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 sin(1); // sine of 1 radian
@@ -124,7 +124,7 @@ sin(1deg); // sine of 1 degree
 sin(1grad); // sine of 1 gradian
 ```
 
-Output:
+编译为:
 
 ```
 0.8414709848078965; // sine of 1 radian
@@ -135,15 +135,15 @@ Output:
 
 ### asin
 
-> Calculates arcsine (inverse of sine) function.
+> 计算反正弦函数。
 
-Returns number in radians e.g. a number between `-π/2` and `π/2`.
+以弧度返回数字 介于`-π/2`和`π/2`之间的数字。
 
-Parameters: `number` - floating point number from `[-1, 1]` interval.
+参数: `number` - `[-1,1]`区间内的浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 asin(-0.8414709848078965)
@@ -151,7 +151,7 @@ asin(0)
 asin(2)
 ```
 
-Output:
+编译为:
 
 ```
 -1rad
@@ -162,42 +162,42 @@ NaNrad
 
 ### cos
 
-> Calculates cosine function.
+> 计算余弦函数。
 
-Assumes radians on numbers without units.
+假设数字弧度上没有单位。
 
-Parameters: `number` - a floating point number.
+参数: `number` - 一个浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
-cos(1) // cosine of 1 radian
-cos(1deg) // cosine of 1 degree
-cos(1grad) // cosine of 1 gradian
+cos(1) // 1弧度的余弦
+cos(1deg) // 1度的余弦
+cos(1grad) // 1百分度的余弦
 ```
 
-Output:
+编译为:
 
 ```
-0.5403023058681398 // cosine of 1 radian
-0.9998476951563913 // cosine of 1 degree
-0.9998766324816606 // cosine of 1 gradian
+0.5403023058681398 // 1弧度的余弦
+0.9998476951563913 // 1度的余弦
+0.9998766324816606 // 1百分度的余弦
 ```
 
 
 ### acos
 
-> Calculates arccosine (inverse of cosine) function.
+> 计算反余弦函数。
 
-Returns number in radians e.g. a number between 0 and π.
+以弧度返回数字 介于0和π之间的数字。
 
-Parameters: `number` - a floating point number from [-1, 1] interval.
+参数: `number` - `[-1,1]`区间内的浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 acos(0.5403023058681398)
@@ -205,7 +205,7 @@ acos(1)
 acos(2)
 ```
 
-Output:
+编译为:
 
 ```
 1rad
@@ -216,50 +216,50 @@ NaNrad
 
 ### tan
 
-> Calculates tangent function.
+> 计算正切函数。
 
-Assumes radians on numbers without units.
+假设数字弧度上没有单位。
 
-Parameters: `number` - a floating point number.
+参数: `number` - 一个浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
-tan(1) // tangent of 1 radian
-tan(1deg) // tangent of 1 degree
-tan(1grad) // tangent of 1 gradian
+tan(1) // 1弧度的正弦
+tan(1deg) // 1度的余弦
+tan(1grad) // 1百分度的余弦
 ```
 
-Output:
+编译为:
 
 ```
-1.5574077246549023   // tangent of 1 radian
-0.017455064928217585 // tangent of 1 degree
-0.015709255323664916 // tangent of 1 gradian
+1.5574077246549023   // 1弧度的正弦
+0.017455064928217585 // 1度的余弦
+0.015709255323664916 // 1百分度的余弦
 ```
 
 
 ### atan
 
-> Calculates arctangent (inverse of tangent) function.
+> 计算反正切函数。
 
-Returns number in radians e.g. a number between `-π/2` and `π/2`.
+以弧度返回数字 介于`-π/2`和`π/2`之间的数字。
 
-Parameters: `number` - a floating point number.
+参数: `number` - 一个浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 atan(-1.5574077246549023)
 atan(0)
-round(atan(22), 6) // arctangent of 22 rounded to 6 decimal places
+round(atan(22), 6) // 22反正切值，四舍五入到小数点后6位
 ```
 
-Output:
+编译为:
 
 ```
 -1rad
@@ -270,19 +270,19 @@ Output:
 
 ### pi
 
-> Returns &pi; (pi);
+> 返回 &pi; (pi);
 
-Parameters: `none`
+参数: `none`
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 pi()
 ```
 
-Output:
+编译为:
 
 ```
 3.141592653589793
@@ -291,17 +291,17 @@ Output:
 
 ### pow
 
-> Returns the value of the first argument raised to the power of the second argument.
+> 返回指数计算值。
 
-Returned value has the same dimension as the first parameter and the dimension of the second parameter is ignored.
+返回值与第一个参数具有相同的尺寸，第二个参数的尺寸将被忽略。 该函数也能够处理负数和浮点数。
 
-Parameters:
-* `number`: base -a floating point number.
-* `number`: exponent - a floating point number.
+参数:
+* `number`: 基数 - 一个浮点数。
+* `number`: 指数 - 一个浮点数。
 
 Returns: `number`
 
-Example:
+示例:
 
 ```less
 pow(0cm, 0px)
@@ -311,7 +311,7 @@ pow(-25, 0.5)
 pow(-25%, -0.5)
 ```
 
-Output:
+编译为:
 
 ```
 1cm
@@ -324,17 +324,17 @@ NaN%
 
 ### mod
 
-> Returns the value of the first argument modulus second argument.
+> 返回余数。
 
-Returned value has the same dimension as the first parameter, the dimension of the second parameter is ignored. The function is able to handle also negative and floating point numbers.
+返回值与第一个参数具有相同的尺寸，第二个参数的尺寸将被忽略。 该函数也能够处理负数和浮点数。
 
-Parameters:
-* `number`: a floating point number.
-* `number`: a floating point number.
+参数:
+* `number`: 一个浮点数。
+* `number`: 一个浮点数。
 
-Returns: `number`
+返回值: `number`
 
-Example:
+示例:
 
 ```less
 mod(0cm, 0px)
@@ -342,7 +342,7 @@ mod(11cm, 6px);
 mod(-26%, -5);
 ```
 
-Output:
+编译为:
 
 ```
 NaNcm;
@@ -353,33 +353,33 @@ NaNcm;
 
 ### min
 
-> Returns the lowest of one or more values.
+> 返回一个或多个值的最小值。
 
-Parameters: `value1, ..., valueN` - one or more values to compare.
+参数: `value1, ..., valueN` - 一个或多个值进行比较。
 
-Returns: the lowest value.
+返回值: 最小值
 
-Example: `min(5, 10);`
+示例: `min(5, 10);`
 
-Output: `5`
+编译为: `5`
 
-Example: `min(3px, 42px, 1px, 16px);`
+示例: `min(3px, 42px, 1px, 16px);`
 
-Output: `1px`
+编译为: `1px`
 
 
 ### max
 
-> Returns the highest of one or more values.
+> 返回一个或多个值的最大值。
 
-Parameters: `value1, ..., valueN` - one or more values to compare.
+参数: `value1, ..., valueN` - 一个或多个值进行比较。
 
-Returns: the highest value.
+返回值: 最大值
 
-Example: `max(5, 10);`
+示例: `max(5, 10);`
 
-Output: `10`
+编译为: `10`
 
-Example: `max(3%, 42%, 1%, 16%);`
+示例: `max(3%, 42%, 1%, 16%);`
 
-Output: `42%`
+编译为: `42%`
