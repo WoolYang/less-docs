@@ -1,124 +1,123 @@
 ### rgb
 
-> Creates an opaque color object from decimal red, green and blue (RGB) values.
+> 用十进制红，绿和蓝（RGB）值创建一个不透明的颜色对象。
 
-Literal color values in standard HTML/CSS formats may also be used to define colors, for example `#ff0000`.
+标准HTML/CSS格式的文字颜色值也可用于定义颜色，例如`#ff0000`。
 
-Parameters:
-* `red`: An integer 0-255 or percentage 0-100%.
-* `green`: An integer 0-255 or percentage 0-100%.
-* `blue`: An integer 0-255 or percentage 0-100%.
+参数:
+* `red`: 整数0-255或百分比0-100%。
+* `green`: 整数0-255或百分比0-100%。
+* `blue`: 整数0-255或百分比0-100%。
 
-Returns: `color`
+返回值: `color`
 
-Example: `rgb(90, 129, 32)`
+示例: `rgb(90, 129, 32)`
 
-Output: `#5a8120`
+编译为: `#5a8120`
 
 
 ### rgba
 
-> Creates a transparent color object from decimal red, green, blue and alpha (RGBA) values.
+> 使用十进制红，绿，蓝和alpha（RGBA）值创建透明颜色对象。
 
-Parameters:
+参数:
 
-* `red`: An integer 0-255 or percentage 0-100%.
-* `green`: An integer 0-255 or percentage 0-100%.
-* `blue`: An integer 0-255 or percentage 0-100%.
-* `alpha`: A number 0-1 or percentage 0-100%.
+* `red`: 整数0-255或百分比0-100％。
+* `green`: 整数0-255或百分比0-100％。
+* `blue`: 整数0-255或百分比0-100％。
+* `alpha`: 数字0-1或百分比0-100％。
 
-Returns: `color`
+返回值: `color`
 
-Example: `rgba(90, 129, 32, 0.5)`
+示例: `rgba(90, 129, 32, 0.5)`
 
-Output: `rgba(90, 129, 32, 0.5)`
+编译为: `rgba(90, 129, 32, 0.5)`
 
 
 ### argb
 
-> Creates a hex representation of a color in `#AARRGGBB` format (**NOT** `#RRGGBBAA`!).
+> 以`#AARRGGBB`格式(**NOT** `#RRGGBBAA`!)创建颜色的十六进制表示形式。
 
-This format is used in Internet Explorer, and .NET and Android development.
+这种格式用于Internet Explorer，.NET和Android开发。
 
-Parameters: `color`, color object.
+参数: `color`, 颜色对象。
 
-Returns: `string`
+返回值: `string`
 
-Example: `argb(rgba(90, 23, 148, 0.5));`
+示例: `argb(rgba(90, 23, 148, 0.5));`
 
-Output: `#805a1794`
+编译为: `#805a1794`
 
 
 ### hsl
 
-> Creates an opaque color object from hue, saturation and lightness (HSL) values.
+> 根据色调，饱和度和亮度（HSL）值创建不透明的颜色对象。
 
-Parameters:
+参数:
 
-* `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100% or number 0-1.
-* `lightness`: A percentage 0-100% or number 0-1.
+* `hue`: 表示度数的整数0-360。
+* `saturation`: 百分比0-100％或数字0-1。
+* `lightness`: 百分比0-100％或数字0-1。
 
-Returns: `color`
+返回值: `color`
 
-Example: `hsl(90, 100%, 50%)`
+示例: `hsl(90, 100%, 50%)`
 
-Output: `#80ff00`
+编译为: `#80ff00`
 
-This is useful if you want to create a new color based on another color's channel, forExample: `@new: hsl(hue(@old), 45%, 90%);`
+当想基于另一种颜色的通道创建新的颜色时，这很有用, 例如： `@new: hsl(hue(@old), 45%, 90%);`
 
-`@new` will have `@old`'s *hue*, and its own saturation and lightness.
-
+`@new`会有`@old`的 *hue*值，以及它自己的饱和度和亮度。
 
 ### hsla
 
-> Creates a transparent color object from hue, saturation, lightness and alpha (HSLA) values.
+> 根据色调，饱和度，亮度和alpha（HSLA）值创建透明颜色对象。
 
-Parameters:
-* `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100% or number 0-1.
-* `lightness`: A percentage 0-100% or number 0-1.
-* `alpha`: A percentage 0-100% or number 0-1.
+参数:
+* `hue`: 表示度数的整数0-360。
+* `saturation`: 百分比0-100％或数字0-1。
+* `lightness`: 百分比0-100％或数字0-1。
+* `alpha`: 百分比0-100％或数字0-1。
 
-Returns: `color`
+返回值: `color`
 
-Example: `hsla(90, 100%, 50%, 0.5)`
+示例: `hsla(90, 100%, 50%, 0.5)`
 
-Output: `rgba(128, 255, 0, 0.5)`
+编译为: `rgba(128, 255, 0, 0.5)`
 
 
 ### hsv
 
-> Creates an opaque color object from hue, saturation and value (HSV) values.
+> 从色调，饱和度和值（HSV）值创建不透明的颜色对象。
 
-Note that this is a color space available in Photoshop, and is not the same as `hsl`.
+请注意，与`hsl`不同，这种方式可用于Photoshop中的颜色空间。
 
-Parameters:
-* `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100% or number 0-1.
-* `value`: A percentage 0-100% or number 0-1.
+参数:
+* `hue`: 表示度数的整数0-360。
+* `saturation`: 百分比0-100％或数字0-1。
+* `value`: 百分比0-100％或数字0-1。
 
-Returns: `color`
+返回值: `color`
 
-Example: `hsv(90, 100%, 50%)`
+示例: `hsv(90, 100%, 50%)`
 
-Output: `#408000`
+编译为: `#408000`
 
 
 ### hsva
 
-> Creates a transparent color object from hue, saturation, value and alpha (HSVA) values.
+> 根据色调，饱和度，值和alpha（HSVA）值创建一个透明的颜色对象。
 
-Note that this is not the same as `hsla`, and is a color space available in Photoshop.
+请注意，与`hsla`不同，这种方式可用于Photoshop中的颜色空间。
 
-Parameters:
-* `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100% or number 0-1.
-* `value`: A percentage 0-100% or number 0-1.
-* `alpha`: A percentage 0-100% or number 0-1.
+参数:
+* `hue`: 表示度数的整数0-360。
+* `saturation`: 百分比0-100％或数字0-1。
+* `value`: 百分比0-100％或数字0-1。
+* `alpha`: 百分比0-100％或数字0-1。
 
-Returns: `color`
+返回值: `color`
 
-Example: `hsva(90, 100%, 50%, 0.5)`
+示例: `hsva(90, 100%, 50%, 0.5)`
 
-Output: `rgba(64, 128, 0, 0.5)`
+编译为: `rgba(64, 128, 0, 0.5)`
